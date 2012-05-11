@@ -1,0 +1,249 @@
+﻿
+/*#103042
+#0E495A
+#49ACC7
+#585600
+#FCBB00*/
+
+html, body {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color:#343434;
+    height:100%;
+}
+a {
+    color:#1db5e5;
+    text-decoration:none;
+}
+a:hover {
+    color:#e5af1b;
+}
+#header{
+    font-family: Tahoma, Arial;
+    color:#e5af1b;
+    font-size: 3em;
+    margin: 10px;
+}
+#breadcrumb{
+    padding: 10px;
+    margin: -10px 0 10px 0;
+    text-align: left;
+    color:#1db5e5;
+    background-color:rgba(52,52,52,0.5);
+}
+
+#main {
+    background-color: #A4A4A4;
+    margin: 0 auto;
+    width: 1000px;
+    min-height:100%;
+    height: auto !important;
+    height:100%;
+    overflow: hidden !important;
+    padding:20px;
+}
+nav{
+    float: left;
+    width: 200px;
+    background-color: #343434;
+    color:#ffffff;
+    margin: 0px;
+    min-height: 250px;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+nav h3 {
+}
+nav a{
+    display: block;
+    min-height: 30px;
+}
+nav a:hover {
+    background-color: #A4A4A4;
+    color: #343434;
+}
+
+section{
+    margin-left: 200px;
+    text-align:left;
+    font-size:11pt;
+}
+
+section{
+    margin-left: 220px;
+    text-align:left;
+    font-size:11pt;
+}
+
+#item{
+    margin-left: 200px;
+}
+
+section h2 {
+    color:#ffffff;
+    font-family: 'Belleza', sans-serif; 
+    font-size: 20pt;
+    text-align:center;
+}
+.bigchar{
+    width: 50px;
+    height: 50px;
+    background-color: #1db5e5;
+    font-size: 16pt;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+}
+#item_title{
+    font-size:large;
+    font-weight:bold;
+    color:#ffffff;
+    padding:5px;
+}
+#item_year{
+    padding:5px;
+}
+#item_author{
+    padding:5px;
+    color:#444444;
+    font-size:10pt;
+}
+#item_picture {
+    margin-right: 40px;
+    margin-left: 5px;
+    width: 150px;
+    height: 200px;
+    float: left;
+}
+#item_genre{
+    padding:5px;
+}
+#item_category{
+    padding:2px;
+    height:25px;
+    width:40px;
+    text-align:center;
+    background-color: #dddddd;
+    color: #888888;
+    /*float: left;*/
+}
+#item_publisher{
+    padding:5px;
+}
+#item_isbn{
+    padding:5px;
+}
+#item_available{
+    padding:2px;
+    height:25px;
+    width:40px;
+    background-color: #dddddd;
+    /*float: left;*/
+    text-align:center;
+}
+#item_rating{
+    padding:5px 0;
+    /*margin:0 0 0 40px;*/
+    /*float:left;*/
+}
+#item_popularity{
+    padding:5px;
+    /*float:left;*/
+    color:#444444;
+    font-size:10pt;
+}
+
+#item_container{
+    float: left;
+}
+
+#available_container{
+    float: left;
+}
+
+.clear{
+    clear: both;
+}
+
+
+footer {
+    padding: 10px;
+    color:#ffffff;
+}
+
+.rating{
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 35px;
+}
+.rating[data-rating="0"]{
+    background-image: url(pics/0star.png);
+}
+.rating[data-rating="1"]{
+    background-image: url(pics/1star.png);
+}
+.rating[data-rating="2"]{
+    background-image: url(pics/2star.png);
+}
+.rating[data-rating="3"]{
+    background-image: url(pics/3star.png);
+}
+.rating[data-rating="4"]{
+    background-image: url(pics/4star.png);
+}
+.rating[data-rating="5"]{
+    background-image: url(pics/5star.png);
+}
+.ratingoverview{
+    display: inline-block;
+}
+section a{
+    color: black;
+}
+.item{
+    padding: 10px 30px;
+}
+
+
+/*
+.button:empty{
+    display: none;
+}
+
+.button{
+    text-transform: uppercase;
+    font-size: 10pt;
+    font-weight: bold;
+    border-radius: 4px;
+    background-color: #FCBB00;
+    height: 25px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    display: inline;
+    padding: 3px 10px;
+    border: 1px solid #767776;
+    vertical-align: middle;
+    color: white;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(center top , #FCBB00, #f2b400);
+    background-image: -ms-linear-gradient(center top , #FCBB00, #f2b400);
+    background-image: -moz-linear-gradient(center top , #FCBB00, #f2b400);
+    line-height: 20pt;
+    text-align: center;
+}
+
+.button a{    
+    text-decoration: none;
+    color: black;
+}
+
+.button:hover{
+    background-color: #006100;
+    background-image: linear-gradient(top center, #ff9900, #f19100);
+    background-image: -ms-linear-gradient(top center, #ff9900, #f19100);
+    background-image: -moz-linear-gradient(top center, #ff9900, #f19100);
+}*/
+

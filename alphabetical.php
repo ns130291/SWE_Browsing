@@ -6,45 +6,100 @@ and open the template in the editor.
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>BookExpress</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <?php
-        $link = mysql_connect('localhost:3306', 'root');
-        if (!$link) {
-            echo 'no link';
-        }
-        mysql_set_charset('utf8');
-        $query = 'SELECT DISTINCT LEFT(title, 1) FROM bookexpress.item';
-        if (isset($_GET['category'])) {
-            $query .= ' WHERE category="' . $_GET['category'] . '"';
-        }
-        $query .= ' ORDER BY title';
-        $result = mysql_query($query);
-        if (!$result) {
-            echo '-1';
-        } else {
-            while ($row = mysql_fetch_row($result)) {
-                echo $row[0];
-                $query = 'SELECT title, isbn FROM bookexpress.item WHERE title LIKE "' . $row[0] . '%"';
+        <div id="header">BookExpress</div>
+        <div id="main">
+            <div id="breadcrumb">
+                <a href="index.php">Home</a>
+                <?php
                 if (isset($_GET['category'])) {
-                    $query .= ' AND category="' . $_GET['category'] . '"';
+                    echo ' &gt; <a href="category.php">Kategorie</a> &gt; <a href="genre.php?category=' . $_GET['category'] . '">' . $_GET['category'] . '</a> &gt; alle';
+                    $breadcrumb = ' &gt; <a href="category.php">Kategorie</a> &gt; <a href="genre.php?category=' . $_GET['category'] . '">' . $_GET['category'] . '</a> &gt; <a href="alphabetical.php?category=' . $_GET['category'] . '">alle</a>';
+                } else {
+                    echo ' &gt; Alphabetisch';
+                    $breadcrumb = ' &gt; <a href="alphabetical.php">Alphabetisch</a>';
+                }
+                //echo $breadcrumb;
+                ?>
+            </div>
+            <nav>
+                <h3>Sortieren nach...</h3>
+                <div>
+                    <a href="category.php">Kategorie</a>
+                </div>
+                <div>
+                    <a href="genre.php">Genre</a>
+                </div>
+                <div>
+                    <a href="author.php">Autor</a>
+                </div>
+                <div>
+                    <a href="publisher.php">Verlag</a>
+                </div>
+                <div>
+                    <a href="year.php">Erscheinungsjahr</a>
+                </div>
+                <div>
+                    <a href="popularity.php">Beliebtheit</a>
+                </div>
+                <div>
+                    <a href="rating.php">Bewertungen</a>
+                </div>
+                <div>
+                    <a href="alphabetical.php">Alphabetisch</a>
+                </div>
+                <div>
+                    <a href="isbn.php">ISBN</a>
+                </div>
+            </nav>
+            <section>
+                <h2>Alphabetisch</h2>
+                <?php
+                $link = mysql_connect('localhost:3306', 'root');
+                if (!$link) {
+                    echo 'no link';
+                }
+                mysql_set_charset('utf8');
+                $query = 'SELECT DISTINCT LEFT(title, 1) FROM bookexpress.item';
+                if (isset($_GET['category'])) {
+                    $query .= ' WHERE category="' . $_GET['category'] . '"';
                 }
                 $query .= ' ORDER BY title';
-                $result2 = mysql_query($query);
-                if (!$result2) {
+                $result = mysql_query($query);
+                if (!$result) {
                     echo '-1';
                 } else {
-                    while ($row2 = mysql_fetch_row($result2)) {
+                    while ($row = mysql_fetch_row($result)) {
                         ?>
-                        <div>
-                            <a href="item.php?isbn=<?php echo $row2[1]; ?>"><?php echo $row2[0]; ?></a>
-                        </div>
+                        <div class="bigchar"><?php echo $row[0]; ?></div>
                         <?php
+                        $query = 'SELECT title, isbn FROM bookexpress.item WHERE title LIKE "' . $row[0] . '%"';
+                        if (isset($_GET['category'])) {
+                            $query .= ' AND category="' . $_GET['category'] . '"';
+                        }
+                        $query .= ' ORDER BY title';
+                        $result2 = mysql_query($query);
+                        if (!$result2) {
+                            echo '-1';
+                        } else {
+                            while ($row2 = mysql_fetch_row($result2)) {
+                                ?>
+                                <div class="item">
+                                    <a href="item.php?isbn=<?php echo $row2[1]; ?>&breadcrumb=<?php echo urlencode($breadcrumb) ?>"><?php echo $row2[0]; ?></a>
+                                </div>
+                                <?php
+                            }
+                        }
                     }
                 }
-            }
-        }
-        ?>
+                ?>
+            </section>
+        </div>
+        <footer>
+            Credits to Nico and Anja
+        </footer>
     </body>
 </html>
